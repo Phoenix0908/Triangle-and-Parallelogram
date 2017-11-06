@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*对平行四边形三部分的颜色进行赋值*/
+/*三个三角形的样式*/
+/*平行四边形样式*/
+.para {
+  display: inline-block;
+  position: relative;
+  padding: 0 10px;
+  height: 12px;
+  line-height: 12px;
+  margin-left: 24px;
+  color: #fff;
+  background: red;
+}
+
+.para:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-style: solid;
+  border-width: 6px 12px;
+  top: 0;
+  right: -24px;
+}
+
+.para:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-style: solid;
+  border-width: 6px 12px;
+  top: 0;
+  left: -24px;
+}
+
+.para:before {
+  border-color: transparent red red transparent;
+}
+
+.para:after {
+  border-color: red transparent transparent red;
+}

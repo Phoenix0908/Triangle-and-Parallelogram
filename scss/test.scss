@@ -1,0 +1,43 @@
+@charset "UTF-8";
+$width:24px;
+$height:12px;
+/*对平行四边形三部分的颜色进行赋值*/
+@mixin parallelogram-color($color){
+  background: $color;
+  &:before{
+    border-color: transparent $color $color transparent;
+  }
+  &:after{
+    border-color: $color transparent transparent $color;
+  }
+}/*三个三角形的样式*/
+@mixin trangle(){
+  content:'';
+  display: block;
+  width:0;
+  height:0;
+  position: absolute;
+  border-style: solid;
+  border-width: $height/2 $width/2;
+  top:0;
+}
+/*平行四边形样式*/
+.para{
+  display: inline-block;
+  position: relative;
+  padding: 0 10px;
+  height:$height;
+  line-height:$height;
+  margin-left: $width;
+  color: #fff;
+
+  &:after{
+    @include trangle();
+    right:-$width;
+  }
+  &:before{
+    @include trangle();
+    left:-$width;
+  }
+  @include parallelogram-color(red);
+}
